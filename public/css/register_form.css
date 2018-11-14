@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+html,
+body {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-content: center;
+}
+
+.page-wrapper {
+    background-color: #7e252b;
+    padding: 20px 60px;
+}
+
+header .header_nav {
+    font-family: 'Julius Sans One', sans-serif;
+    background-color: #7e252b;
+    display: block;
+}
+
+.header_nav .header_info {
+    font-size: 17px;
+    margin-right: 700px;
+    color: #fff;
+}
+
+.header_nav .btn-link {
+    color: #fff;
+    font-size: 17px;
+    margin-right: 20px;
+    -webkit-transition: all .28s ease-in-out;
+    transition: all .28s ease-in-out;
+}
+
+.header_nav .btn-link:hover {
+    color: #bbbbbb;
+    text-decoration: none;
+}
+
+.header_nav .btn-link:active {
+    color: #bbbbbb;
+    text-decoration: none;
+}
+
+.header_cont {
+    padding-top: 40px;
+}
+
+.header_cont .logo_s{
+    font-family: 'Julius Sans One', sans-serif;
+    color: #fff;
+    font-size: 18px;
+}
+
+.header_cont .logo {
+    font-family: 'Kaushan Script', cursive;
+    color: #fff;
+    font-size: 70px;
+}
+
+.header_cont .logo_h {
+    font-family: 'Kaushan Script', cursive;
+    color: #e0ba79;
+    font-size: 85px;
+}
+
+.content_nav {
+    padding: 10px;
+}
+
+.content_nav .community_btn {
+    font-family: 'Julius Sans One', sans-serif;
+    background: #e0ba79;
+    color: #7e252b;
+    font-family: Sans-serif;
+    font-size: 20px;
+    height: 50px;
+    width: 300px;
+    margin: 25px 10px;
+    text-align: center;
+    border: 0;
+    transition: all 0.3s ease 0s;
+}
+
+
+.content_nav .about_btn {
+    font-family: 'Julius Sans One', sans-serif;
+    background: #7e252b;
+    color: #e0ba79;
+    font-family: Sans-serif;
+    font-size: 20px;
+    height: 50px;
+    width: 300px;
+    margin: 25px 10px;
+    text-align: center;
+    border: 1px solid #e0ba79;
+    transition: all 0.3s ease 0s;
+}
+
+.content_nav .btn-link:hover {
+    font-family: 'Julius Sans One', sans-serif;
+    background: #7e252b;
+    color: #fff;
+    font-family: Sans-serif;
+    font-size: 20px;
+    height: 50px;
+    width: 300px;
+    margin: 25px 10px;
+    text-align: center;
+    border: 1px solid #fff;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+}
+
+
+/*
+.content_slide {
+    margin: auto;
+    width: 100%;
+}
+
+
+.slider {
+    
+    margin: auto;
+    width: 1047px;
+    height: 688px;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+
+.img1,
+.img2,
+.img3,
+.img4,
+.img5 {
+
+    margin: 0;
+    padding: 0;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slide:nth-child(1) {
+    background-image: url(s1.JPG);
+}
+
+.slide:nth-child(2) {
+    background-image: url(s2.JPG);
+}
+
+.slide:nth-child(3) {
+    background-image: url(s3.JPG);
+}
+
+.slide:nth-child(4) {
+    background-image: url(s4.JPG);
+}
+*/
+
+.content_v {
+    margin: 20px 0;
+    padding: 0;
+}
+
+.s1_video,
+.s2_video,
+.s3_video,
+.s4_video {
+    margin: auto;
+    display: inline-block;
+}
+
+footer {
+    padding: 20px;
+    background: #fff;
+    color: #7e252b;
+}
