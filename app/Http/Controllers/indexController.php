@@ -4,11 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\board;
+use App\User;
+use App\Comment;
 
 class indexController extends Controller
 {
     public function main(){
         return view('index');
+    }
+
+    public function userDelete(Request $request){
+        foreach($request as $row)
+            user::where('id',$row['id'])->delete();
+        
     }
 
     public function community(){
@@ -21,10 +29,6 @@ class indexController extends Controller
 
     public function write_form($category){
         return view('write_form')->with('category', $category);
-    }
-
-    public function write_formMarket(){
-        return view('write_formMarket');
     }
 
     public function writeUpload(){
@@ -60,12 +64,24 @@ class indexController extends Controller
         }
     }
 
+    public function buy(){
+        return view('buy');
+    }
+
+
+    // public function marketSlime(request $requset){
+    //     $market_slime = new market_slime();
+
+    //     // 사용자가 추가한 슬라임 이름을 marekt_slime 테이블에 추가해준다
+    //     $market_slime->name = $request->name;
+
+    //     $market_slime->save();
+    // }
 
     public function Board($category){
-    	$boards = board::all()->where('category', $category);
+    	$boards = board::where('category', $category)->paginate(5);
         
-        return view($category.'Board')
-        ->with('boards', $boards);
+        return view($category.'Board')->with('boards', $boards);
     }
 
     // public function QnABoard(){
@@ -85,14 +101,22 @@ class indexController extends Controller
         
 
         // $bdao = new boardDao();
-         /*=>*/ $board = new board(); //boards 테이블을 생성해서 담음
-
+        $board = new board(); //boards 테이블을 생성해서 담음
         // $title = requestValue("title");
          /*=> form태그에서 action으로 이 메서드로 데이터를 전송하면 매개변수 Request $request로 받아 온다*/
         $board->title = $request->title; /*$_REQUEST['title'] == $request->title*/
         $board->writer = $request->writer;
         $board->content = $request->content;
         $board->category = $request->category;
+
+        // $marketSlime = new market_slime();
+
+        // $marketSlime->name = $request->s0;
+        // $marketSlime->name = $request->s1;
+        // $marketSlime->name = $request->s2;
+        // $marketSlime->name = $request->s3;
+        // $marketSlime->name = $request->s4;
+
         // $writer = requestValue("writer");
         // $content = requestValue("content");
          // 마지막으로 $board->save(); 하면 insert됨
@@ -104,15 +128,34 @@ class indexController extends Controller
     //         errorBack("모든 항목이 빈칸 없이 입력 되어야 합니다 ! ");
     //     }
 
+    }
 
+    public function comment(Request $request, $num){
+        $comment = new comment();
+        
 
+        $comment->board_id = $num;
+        $comment->c_writer = \Auth::user()['name'];
+        $comment->c_content = $request->c_content;
+
+        $comment->save();
+
+        return redirect('/view/'.$num)->with('message',"댓글이 정상적으로 등록되었습니다 ! ");
     }
 
     // 해당 게시글 보기
      public function view($num){
         $board = board::where('num', $num)->first();
+        $comments = comment::all()->where('board_id',$num);
 
-        return view('view')->with('board',$board);
+        return view('view')->with('board',$board)->with('comments',$comments);
+    }
+
+    // 관리자 페이지 회원 정보 보기
+     public function adminPage(){
+        $users = user::all();
+
+        return view('adminPage')->with('users',$users);
     }
 
 
@@ -170,7 +213,6 @@ class indexController extends Controller
 
         return redirect('/board/'.$board->category)->with('message',"게시글이 삭제되었습니다 ! ");
     }
-
 
 
 

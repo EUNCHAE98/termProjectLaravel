@@ -48,6 +48,9 @@
                         <div class="modal-footer justify-content-center">
                             <button type="submit" class="btn btn-outline-warning waves-effect">Login</button>
                         </div>
+                        <div class="modal-footer justify-content-center">
+                            @include('components.kakaoLogin')
+                        </div>
                     </form>
                     </div>
                     <!--/.Content-->
@@ -146,7 +149,10 @@
                     </div>
                     <!--/.Content-->
                     </div>
-                    </div>  
+                    </div> 
+                    @if(\Auth::user()['name'] == 'admin')
+                            <button type="button" onclick="location.href='{{url('adminPage')}}'" class="btn btn-link bt-sm">관리자 페이지로 > </button>
+                        @endif
                     @endif
                     <!-- modal 끝 -->
                         <!-- update 부분 끝 -->

@@ -1,5 +1,4 @@
-
-@extends('write_formMain')
+@extends('adminPageMain')
 
 @section('mdb')
     @include('components.mdb')
@@ -9,8 +8,8 @@
     @include('components.header')
 @endsection
 
-@section('write_form')
-    @include('components.write_formMarket')
+@section('adminPage')
+    @include('components.adminPage')
 @endsection
 
 @section('footer')

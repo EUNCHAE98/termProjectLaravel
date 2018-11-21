@@ -6,6 +6,12 @@
 
     <head>
         <link href="{{asset('css/view.css')}}" rel="stylesheet">
+        <!-- marketPop 스크립트 -->
+        <script>                      
+            $(document).ready(function() {
+                $('.mdb-select').materialSelect();
+            });
+        </script>
         @yield('mdb')
     </head>
 
@@ -29,6 +35,7 @@
 
                             @yield('viewContent')
                             @yield('viewNav')
+                            @yield('marketPop')
 
                         </div>
                             <!-- 댓글창 -->

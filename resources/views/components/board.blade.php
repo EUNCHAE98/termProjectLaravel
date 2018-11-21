@@ -37,3 +37,10 @@
         <div class="col-14 d-flex p-2 justify-content-end">
             <button type="button" onclick="location.href='{{url('write_form')}}/{{$row['category']}}'" class="btn amy-crisp-gradient">글쓰기</button>
         </div>
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination pg-purple justify-content-center">
+        {{ $boards->links() }}
+    </ul>
+    </nav>

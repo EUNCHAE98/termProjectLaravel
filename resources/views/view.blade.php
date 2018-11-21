@@ -17,6 +17,10 @@
     @include('components.viewNav')
 @endsection
 
+@section('marketPop')
+    @include('components.marketPop')
+@endsection
+
 @section('comment_form')
     @include('components.comment_form')
 @endsection

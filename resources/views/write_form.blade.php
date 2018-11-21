@@ -10,9 +10,13 @@
 @endsection
 
 @section('write_form')
-    @include('components.write_form')
+	@if($category == 'market')
+	    @include('components.write_formMarket')
+	@else
+	    @include('components.write_form')	
+	@endif
 @endsection
-
+		
 @section('footer')
     @include('components.footer')
 @endsection
