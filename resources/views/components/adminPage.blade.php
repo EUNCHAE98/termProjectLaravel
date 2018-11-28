@@ -1,3 +1,4 @@
+
 <!-- Table with panel -->
 <div class="card card-cascade narrower">
 
@@ -6,21 +7,15 @@
 
     <div>
       <button type="button" class="btn btn-outline-white btn-sm px-2">
-        <i class="fa fa-th-large mt-0"></i>
-      </button>
-      <button type="button" class="btn btn-outline-white btn-sm px-2">
-        <i class="fa fa-columns mt-0"></i>
+          <i class="fa fa-star mt-0"></i>
       </button>
     </div>
 
-    <a href="" class="white-text mx-3">USER LIST</a>
+    <a href="" class="white-text mx-4">USER LIST</a>
 
     <div>
-      <button type="button" class="btn btn-outline-white btn-sm px-2">
-        <i class="fa fa-pencil mt-0"></i>
-      </button>
-      <button type="button" onclick="location.href='{{url('userDelete')}}'" class="btn btn-outline-white btn-sm px-2">
-        <i class="fa fa-remove mt-0"></i>
+      <button type="button" class="btn btn-outline-white btn-sm px-2" onclick="document.getElementById('userDelete').submit()">
+          <i class="fa fa-remove mt-0"></i>
       </button>
     </div>
 
@@ -63,19 +58,23 @@
 
         <!--Table body-->
         <tbody>
-           @foreach($users as $row)
-          <tr>
-            <th scope="row">
-              <input class="form-check-input" type="checkbox" name="users[]" value="{{$row['id']}}">
-            </th>
-            <td>{{$row["name"]}}</td>
-            <td>{{$row["email"]}}</td>
-            <td>*********</td>
-            <td>{{$row["created_at"]}}</td>
-            <td>{{$row["updated_at"]}}</td>
-            <td><a href="">보러가기 <i class="fas fa-angle-right"></i><a></td>
-          </tr>
-          @endforeach
+          <form id="userDelete" method="post" action="{{url('userDelete')}}">
+            @csrf
+              
+            @foreach($users as $row)
+              <tr>
+                <th scope="row">
+                  <input class="form-check-input" type="checkbox" name="users[]" value="{{$row['id']}}">
+                </th>
+                <td>{{$row["name"]}}</td>
+                <td>{{$row["email"]}}</td>
+                <td>*********</td>
+                <td>{{$row["created_at"]}}</td>
+                <td>{{$row["updated_at"]}}</td>
+                <td><a href="{{url('goToUserBoard')}}/{{$row['name']}}">보러가기 <i class="fas fa-angle-right"></i><a></td>
+              </tr>
+            @endforeach
+          </form>
         </tbody>
         <!--Table body-->
       </table>

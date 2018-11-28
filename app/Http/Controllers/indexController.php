@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\board;
 use App\User;
 use App\Comment;
+use App\Task;
+use App\market_slime;
 
 class indexController extends Controller
 {
@@ -14,9 +16,26 @@ class indexController extends Controller
     }
 
     public function userDelete(Request $request){
-        foreach($request as $row)
-            user::where('id',$row['id'])->delete();
+        // return response()->json($request['users'], 200, [], JSON_PRETTY_PRINT);
         
+        for($i=0; $i<count($request['users']); $i++){
+            // echo $request['users'][$i];
+            user::where('id', $request['users'][$i])->delete();
+        }
+        // foreach($request as $row){
+        //     return $row->users;
+        //     user::where('id',$row['users'])->delete();
+        // }
+
+        return redirect('/adminPage');
+    }
+
+
+    public function goToUserBoard($name){
+        $user = user::where('name',$name)->value('name');
+        $userBoards = board::where('writer',$user)->paginate(6);
+
+        return view('/goToUserBoard')->with('userBoards',$userBoards);
     }
 
     public function community(){
@@ -24,7 +43,8 @@ class indexController extends Controller
     }
 
     public function about(){
-    	return view('about');
+        $tasks = Task::all();
+    	return view('about')->with('tasks',$tasks);
     }
 
     public function write_form($category){
@@ -109,6 +129,27 @@ class indexController extends Controller
         $board->content = $request->content;
         $board->category = $request->category;
 
+        $board->save();
+
+
+        if($request->category == 'market'){
+            // $sellSlime = array_pop($request);
+            // return $sellSlime;
+            for($i=0; $i<count($request->all())-5; $i++){
+
+                $market_slimes = new market_slime();    
+                $sellSlime['s'.$i] = $request['s'.$i];
+                $market_slimes->id = $board->num;
+                $market_slimes->name = $sellSlime['s'.$i];
+            
+
+                $market_slimes->save();
+            } 
+
+
+                // return response()->json($sellSlime,200,[],JSON_PRETTY_PRINT);
+        }
+
         // $marketSlime = new market_slime();
 
         // $marketSlime->name = $request->s0;
@@ -121,7 +162,7 @@ class indexController extends Controller
         // $content = requestValue("content");
          // 마지막으로 $board->save(); 하면 insert됨
 
-        $board->save(); /*여기서 save()*/
+         /*여기서 save()*/
     //         okGo("글이 등록되었습니다 ! ","$nowBoard.php");
             return redirect('/view/'.$board->num)->with('message',"글이 정상적으로 등록되었습니다 ! ");
     //     }else{ // 모든 항목이 채워지지 않았을 경우
@@ -153,9 +194,10 @@ class indexController extends Controller
 
     // 관리자 페이지 회원 정보 보기
      public function adminPage(){
+        $tasks = Task::all();
         $users = user::all();
 
-        return view('adminPage')->with('users',$users);
+        return view('adminPage')->with('users',$users)->with('tasks',$tasks);;
     }
 
 

@@ -18,6 +18,8 @@ Route::get('/','indexController@main');
 Route::get('/community','indexController@community');
 Route::get('/adminPage','indexController@adminPage');
 Route::get('/about','indexController@about');
+Route::post('/userDelete','indexController@userDelete');
+Route::get('/goToUserBoard/{name}','indexController@goToUserBoard');
 
 //board목록
 Route::get('/Board/{category}','indexController@Board');
@@ -51,6 +53,8 @@ Route::get('boards', function () {
 
     //
 });
+
+Route::resource('tasks', 'TasksController');
 
 Route::get('kakao','kakaoLoginController@index');
 Route::get('login/kakao','kakaoLoginController@redirectToProvider');
