@@ -3,7 +3,7 @@
 
 <div class="card-deck">
     @foreach ($boards as $row)
-    <div class="card col-4" style="padding:0px;">
+    <div class="col-4" style="padding:0px;">
 
       <!--Card image-->
       <div class="view overlay">
@@ -30,6 +30,7 @@
   @endforeach
 </div>
   <!-- Card-deck -->
+</div>
 
         <div class="col-14 d-flex p-2 justify-content-end">
             <button type="button" onclick="location.href='{{url('write_form')}}/{{$row['category']}}'" class="btn btn-warning">글쓰기</button>
@@ -40,3 +41,8 @@
         {{ $boards->links() }}
     </ul>
     </nav>
+
+
+
+
+

@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -68,5 +69,39 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => hash::make($data['password']),
         ]);
+    }
+
+    public function register(Request $request){
+        $this->validator($request->all())->validate();
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'confirm_code' => str_random(60),
+        ]);
+
+        
+        \Mail::send('auth.email.confirm', compact('user') , function($message) use($user) {
+            $message->to($user->email);
+            $message->subject("SmileSlime 회원가입 확인");
+        });
+
+        return redirect(route('community'))->with('message', '이메일 인증 메일을 발송하였습니다 ! 이메일을 확인하여 가입 절차를 완료해주세요 ! ');
+    }
+
+    public function confirm($code) {
+        $user = User::where('confirm_code', $code)->first();
+        
+        if(!$user) {
+            return redirect(route('community'))->with('message', '이메일 인증 절차를 거치지 않았습니다 ! ');
+        }
+
+        $user->activated = true;
+        $user->confirm_code = null;
+        $user->save();
+
+        \Auth::login($user);
+        return redirect(route('community'));
     }
 }

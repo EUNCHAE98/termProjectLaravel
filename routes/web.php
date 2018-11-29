@@ -15,7 +15,7 @@ Route::get('/welcome',function(){
 });
 
 Route::get('/','indexController@main');
-Route::get('/community','indexController@community');
+Route::get('/community','indexController@community')->name('community');
 Route::get('/adminPage','indexController@adminPage');
 Route::get('/about','indexController@about');
 Route::post('/userDelete','indexController@userDelete');
@@ -42,6 +42,8 @@ Route::post('/destroy', ['as' => 'destroy', 'use' => 'indexController@destroy'])
 //view
 Route::get('/view/{num?}','indexController@view');
 Route::post('/comment/{num?}','indexController@comment');
+
+Route::get('register/{code}', 'Auth\RegisterController@confirm')->name('register.confirm');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

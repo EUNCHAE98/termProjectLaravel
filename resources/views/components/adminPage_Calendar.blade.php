@@ -1,5 +1,15 @@
-<!-- Button trigger modal -->
+<div class="card">
 
+  <div class="card-body">
+    <p class="card-title" style="font-size: 1.5rem;">Slime Open Market Calendar</p>
+    <p class="card-text">Add Schedule and Make up Our Slime Open Market Calendar !</p>
+    
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn warm-flame-gradient" data-toggle="modal" data-target="#basicExampleModal">
+  캘린더 일정 추가
+</button>
 
 <!-- Modal -->
 <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -59,11 +69,17 @@
 
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-warning">Save changes</button>
       </div>
       </form>
     </div>
     </div>
   </div>
 </div>
+
+  </div>
+</div>
+
+
+

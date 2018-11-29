@@ -7,8 +7,8 @@
             @yield('header')
         <div class="slider-container">
             @yield('adminPage')
+        </br></br>
             @yield('adminPage_Calendar')
-            @yield('tasks')
         </div>
     </div>
     </body>

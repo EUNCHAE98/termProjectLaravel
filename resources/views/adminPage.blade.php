@@ -16,10 +16,6 @@
     @include('components.adminPage_Calendar')
 @endsection
 
-@section('tasks')
-    @include('tasks.index')
-@endsection
-
 @section('footer')
     @include('components.footer')
 @endsection
