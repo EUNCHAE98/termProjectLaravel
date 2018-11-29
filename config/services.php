@@ -46,10 +46,5 @@ return [
         'redirect' => env('KAKAO_REDIRECT_URL'),
     ],
 
-    'naver' => [
-        'client_id' => env('NAVER_KEY'),
-        'client_secret' => env('NAVER_SECRET'),
-        'redirect' => env('NAVER_REDIRECT_URI'),
-    ],
 
 ];

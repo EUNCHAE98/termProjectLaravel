@@ -14,7 +14,6 @@ class kakaoLoginController extends Controller
     public function index(){
     	return view('kakaoLogin');
     }
-
     public function redirectToProvider(){
     	return Socialite::with('kakao')->redirect();
     }

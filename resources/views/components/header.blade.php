@@ -48,9 +48,12 @@
                         <div class="modal-footer justify-content-center">
                             <button type="submit" class="btn btn-outline-warning waves-effect">Login</button>
                         </div>
+                        
+                        <!-- kakaotalk login button -->
                         <div class="modal-footer justify-content-center">
                             @include('components.kakaoLogin')
                         </div>
+
                     </form>
                     </div>
                     <!--/.Content-->

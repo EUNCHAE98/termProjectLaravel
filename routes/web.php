@@ -58,6 +58,8 @@ Route::get('boards', function () {
 
 Route::resource('tasks', 'TasksController');
 
+
+//kakaotalk login
 Route::get('kakao','kakaoLoginController@index');
 Route::get('login/kakao','kakaoLoginController@redirectToProvider');
 Route::get('login/kakao/callback','kakaoLoginController@handleProviderCallback');
