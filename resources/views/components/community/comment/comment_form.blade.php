@@ -9,6 +9,6 @@
 	<div class="col-auto float-right" style="display: inline-block;" >
 		<button type="submit" class="btn btn-secondary btn-sm" >등록</button>
 	</div>
-	@include('components.comment_view')
+	@include('components.community.comment.comment_view')
 </form>
 

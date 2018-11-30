@@ -1,15 +1,15 @@
-@extends('indexMain')
+@extends('Main.indexMain')
 
 @section('mdb')
     @include('components.mdb')
 @endsection
 
 @section('header')
-    @include('components.indexHeader')
+    @include('components.main.indexHeader')
 @endsection
 
 @section('video')
-    @include('components.video')
+    @include('components.main.video')
 @endsection
 
 @section('footer')

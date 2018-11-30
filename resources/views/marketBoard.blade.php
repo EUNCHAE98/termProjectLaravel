@@ -1,5 +1,4 @@
-
-@extends('marketBoardMain')
+@extends('Main.marketBoardMain')
 
 @section('mdb')
     @include('components.mdb')
@@ -10,7 +9,7 @@
 @endsection
 
 @section('marketCard')
-    @include('components.marketCard')
+    @include('components.community.borad.market.marketCard')
 @endsection
 
 @section('footer')

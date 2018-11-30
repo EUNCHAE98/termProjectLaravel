@@ -1,5 +1,4 @@
-
-@extends('modify_formMain')
+@extends('Main.modify_formMain')
 
 @section('mdb')
     @include('components.mdb')
@@ -10,7 +9,7 @@
 @endsection
 
 @section('modify_form')
-    @include('components.modify_form')
+    @include('components.community.form.modify_form')
 @endsection
 
 @section('footer')

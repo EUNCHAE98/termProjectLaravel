@@ -7,22 +7,21 @@ use Illuminate\Http\Request;
 
 class TasksController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    // Display Calendar
     public function index()
     {
         $tasks = Task::all();
         return view('tasks.index', compact('tasks'));
     }
 
+    // Create Tasks
     public function create()
     {
         return view('tasks.create');
     }
 
+    // Store Tasks in to Calendar
     public function store(Request $request)
     {
         Task::create($request->all());

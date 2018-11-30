@@ -1,5 +1,4 @@
-
-@extends('write_formMain')
+@extends('Main.write_formMain')
 
 @section('mdb')
     @include('components.mdb')
@@ -11,9 +10,9 @@
 
 @section('write_form')
 	@if($category == 'market')
-	    @include('components.write_formMarket')
+	    @include('components.community.form.write_formMarket')
 	@else
-	    @include('components.write_form')	
+	    @include('components.community.form.write_form')	
 	@endif
 @endsection
 		

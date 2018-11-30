@@ -1,5 +1,4 @@
-
-@extends('reviewBoardMain')
+@extends('Main.reviewBoardMain')
 
 @section('mdb')
     @include('components.mdb')
@@ -10,11 +9,11 @@
 @endsection
 
 @section('reviewImage')
-    @include('components.reviewImage')
+    @include('components.community.board.review.reviewImage')
 @endsection
 
 @section('board')
-    @include('components.board')
+    @include('components.community.board.board')
 @endsection
 
 @section('footer')

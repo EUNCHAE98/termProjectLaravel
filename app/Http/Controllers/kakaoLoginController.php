@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\Auth;
-use Laravel\Socialite\Facades\Socialite; // laravel에서 지원해줌
+use Laravel\Socialite\Facades\Socialite;
 use App\User;
 
 class kakaoLoginController extends Controller
@@ -18,8 +18,7 @@ class kakaoLoginController extends Controller
     	return Socialite::with('kakao')->redirect();
     }
 
-    // 로그인 하면 이 메소드가 실행된다 
-    // 이 메소드에서 로그인 처리가 이루어짐
+    // 로그인 할 때 실행되는 매소드
     public function handleProviderCallback(){
     	$kaUser = Socialite::with('kakao')->user();
 

@@ -1,4 +1,4 @@
-@extends('adminPageMain')
+@extends('Main.adminPageMain')
 
 @section('mdb')
     @include('components.mdb')
@@ -9,11 +9,11 @@
 @endsection
 
 @section('adminPage')
-    @include('components.adminPage')
+    @include('components.adminPage.adminPage')
 @endsection
 
 @section('adminPage_Calendar')
-    @include('components.adminPage_Calendar')
+    @include('components.adminPage.adminPage_Calendar')
 @endsection
 
 @section('footer')

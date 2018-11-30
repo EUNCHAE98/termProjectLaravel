@@ -1,4 +1,4 @@
-@extends('goToUserBoardMain')
+@extends('Main.goToUserBoardMain')
 
 @section('mdb')
     @include('components.mdb')
@@ -9,7 +9,7 @@
 @endsection
 
 @section('userBoard')
-    @include('components.userBoard')
+    @include('components.adminPage.userBoard')
 @endsection
 
 @section('footer')

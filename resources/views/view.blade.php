@@ -1,5 +1,4 @@
-
-@extends('viewMain')
+@extends('Main.viewMain')
 
 @section('mdb')
     @include('components.mdb')
@@ -10,19 +9,19 @@
 @endsection
 
 @section('viewContent')
-    @include('components.viewContent')
+    @include('components.community.view.viewContent')
 @endsection
 
 @section('viewNav')
-    @include('components.viewNav')
+    @include('components.community.view.viewNav')
 @endsection
 
 @section('marketPop')
-    @include('components.marketPop')
+    @include('components.community.board.market.marketPop')
 @endsection
 
 @section('comment_form')
-    @include('components.comment_form')
+    @include('components.community.comment.comment_form')
 @endsection
 
 @section('footer')

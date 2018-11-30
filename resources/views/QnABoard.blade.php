@@ -1,5 +1,4 @@
-
-@extends('QnABoardMain')
+@extends('Main.QnABoardMain')
 
 @section('mdb')
     @include('components.mdb')
@@ -10,11 +9,11 @@
 @endsection
 
 @section('QnAImage')
-    @include('components.QnAImage')
+    @include('components.community.board.QnA.QnAImage')
 @endsection
 
 @section('board')
-    @include('components.board')
+    @include('components.community.board.board')
 @endsection
 
 @section('footer')

@@ -81,7 +81,7 @@ class RegisterController extends Controller
             'confirm_code' => str_random(60),
         ]);
 
-        
+        // 메일 전송        
         \Mail::send('auth.email.confirm', compact('user') , function($message) use($user) {
             $message->to($user->email);
             $message->subject("SmileSlime 회원가입 확인");
@@ -90,17 +90,26 @@ class RegisterController extends Controller
         return redirect(route('community'))->with('message', '이메일 인증 메일을 발송하였습니다 ! 이메일을 확인하여 가입 절차를 완료해주세요 ! ');
     }
 
+    // 인증 매소드
     public function confirm($code) {
         $user = User::where('confirm_code', $code)->first();
         
+        // confirm_code 를 부여받지 않은 회원인 경우
         if(!$user) {
             return redirect(route('community'))->with('message', '이메일 인증 절차를 거치지 않았습니다 ! ');
         }
 
+        /*
+            activated = 1
+            confirm_code = null
+
+            인 경우 인증을 받은 회원이다. 해당 회원의 정보를 save
+        */
         $user->activated = true;
         $user->confirm_code = null;
         $user->save();
 
+        // login 실행
         \Auth::login($user);
         return redirect(route('community'));
     }

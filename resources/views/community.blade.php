@@ -1,4 +1,4 @@
-@extends('communityMain')
+@extends('Main.communityMain')
 
 @section('mdb')
     @include('components.mdb')
@@ -9,11 +9,11 @@
 @endsection
 
 @section('imageSlide')
-    @include('components.imageSlide')
+    @include('components.community.imageSlide')
 @endsection
 
 @section('cardSection')
-    @include('components.cardSection')
+    @include('components.community.cardSection')
 @endsection
 
 @section('footer')

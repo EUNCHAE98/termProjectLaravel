@@ -1,39 +1,39 @@
-@extends('aboutMain')
+@extends('Main.aboutMain')
 
 @section('mdb')
     @include('components.mdb')
 @endsection
 
 @section('aboutNav')
-    @include('components.aboutNav')
+    @include('components.about.aboutNav')
 @endsection
 
 @section('aboutSlime')
-    @include('components.aboutSlime')
+    @include('components.about.aboutSlime')
 @endsection
 
 @section('aboutCalendar')
-    @include('components.aboutCalendar')
+    @include('components.about.aboutCalendar')
 @endsection
 
 @section('aboutClear')
-    @include('components.aboutClear')
+    @include('components.about.aboutClear')
 @endsection
 
 @section('aboutButter')
-    @include('components.aboutButter')
+    @include('components.about.aboutButter')
 @endsection
 
 @section('aboutCrunch')
-    @include('components.aboutCrunch')
+    @include('components.about.aboutCrunch')
 @endsection
 
 @section('aboutJellycube')
-    @include('components.aboutJellycube')
+    @include('components.about.aboutJellycube')
 @endsection
 
 @section('aboutJiggly')
-    @include('components.aboutJiggly')
+    @include('components.about.aboutJiggly')
 @endsection
 
 @section('footer')
