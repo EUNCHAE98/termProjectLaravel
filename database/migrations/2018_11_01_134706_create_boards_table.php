@@ -16,7 +16,10 @@ class CreateboardsTable extends Migration
         Schema::create('boards', function (Blueprint $table) {
             $table->increments('num')->comment('게시글 번호');
             $table->string('title')->comment('게시글 제목');
-            $table->string('writer')->comment('글쓴이');
+
+            $table->string('writer', 100)->comment('글쓴이');
+            $table->foreign('writer')->references('name')->on('users')->onDelete('cascade')->onUpate('cascade');
+
             $table->text('content')->comment('게시글 내용');
             $table->integer('hits')->default(0)->comment('조회수');
             $table->string('category')->comment('게시글 종류');

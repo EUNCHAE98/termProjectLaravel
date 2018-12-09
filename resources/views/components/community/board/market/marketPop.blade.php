@@ -13,35 +13,28 @@
                             </button>
                         </div>
 
-                        <form action="{{url('buy')}}" method="post">
+                        <form action="{{url('buy')}}/{{$board['num']}}" method="post">
+                        @csrf
                         <!--Body-->
                         <div class="modal-body" style="padding:3rem 10rem 1rem 10rem;">
                                 <!-- Default unchecked -->
                                 <div class="text-center">
 
+                                @foreach($slime_market as $row)
+
                                 <!-- Default inline 1-->
                                 <div class="custom-control custom-checkbox custom-control-inline">
-                                  <input type="checkbox" class="custom-control-input" id="a">
-                                  <label class="custom-control-label" for="a">폼폼 슬라임&nbsp;&nbsp;&nbsp;</label>
+                                  <input type="checkbox" class="custom-control-input" name="buySlimes[]" value="{{$row['s_name']}}" id="<?= $row["s_name"] ?>">
+                                  <label class="custom-control-label" for="<?= $row["s_name"] ?>"><?= $row["s_name"] ?></label>
                                 </div>
 
-                                <!-- Default inline 2-->
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                  <input type="checkbox" class="custom-control-input" id="b">
-                                  <label class="custom-control-label" for="b">클라우드 슬라임&nbsp;&nbsp;&nbsp;</label>
-                                </div>
-
-                                <!-- Default inline 3-->
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                  <input type="checkbox" class="custom-control-input" id="c">
-                                  <label class="custom-control-label" for="c">묘약 슬라임&nbsp;&nbsp;&nbsp;</label>
-                                </div>
+                                @endforeach
 
                             </div>
 
                             <div class="md-form">
                                 <i class="fa fa-comment prefix grey-text"></i>
-                                <input type="text" id="form2" class="form-control validate" name="message" placeholder="판매자에게 한마디">
+                                <input type="text" id="form2" class="form-control validate" name="message" placeholder="판매자와 연락 가능한 휴대전화 번호 / 카카오톡 ID / email 을 입력해주세요 ! ">
                             </div>
                         </div>
 

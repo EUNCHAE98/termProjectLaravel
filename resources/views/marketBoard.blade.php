@@ -9,7 +9,7 @@
 @endsection
 
 @section('marketCard')
-    @include('components.community.borad.market.marketCard')
+    @include('components.community.board.market.marketCard')
 @endsection
 
 @section('footer')

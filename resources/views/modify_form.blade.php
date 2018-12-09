@@ -9,7 +9,7 @@
 @endsection
 
 @section('modify_form')
-    @include('components.community.form.modify_form')
+	@include('components.community.form.modify_form')	
 @endsection
 
 @section('footer')

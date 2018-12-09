@@ -22,6 +22,33 @@
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/js/mdb.min.js"></script>
 
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+        </script>
+
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#getRequest').click(function(){
+                    var data = { 'order_id' : $('#order_id').val() };
+                    $.ajax({
+                        url : '/getRequest',
+                        type : 'GET',
+                        data : data,
+                        success:function (view) {
+                            $('#RequestView').html(view);
+                            console.log(view);
+                        },
+                        error:function (error) {
+                            console.log('Error:', data);
+                        }
+                    });
+                    // $.get('getRequest',function(data){
+                    //     $('#RequestView').html(data);
+                    // });
+                });
+            });
+        </script>
+
 
 
 

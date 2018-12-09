@@ -5,7 +5,7 @@
     <img class="avatar" src="{{asset('img/6.png')}}" style="margin-top: .5rem;">
     <div class="from" style="padding-top: .5rem;">
         <span>{{$board["writer"]}}</span>
-        <a href="memberBoard.php"> 작성글 보기 </a>
+        <a href="{{url('goToUserBoard')}}/{{$board['writer']}}"> 작성글 보기 </a>
     </div>
     <div class="date"><span class="fa fa-paper-clip"></span>
        {{$board["create_at"]}}

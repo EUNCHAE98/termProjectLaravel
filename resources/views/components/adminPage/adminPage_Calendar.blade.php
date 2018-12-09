@@ -69,8 +69,8 @@
 
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-warning">Save changes</button>
+        <button type="button" class="btn btn-outline-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-default">Save changes</button>
       </div>
       </form>
     </div>

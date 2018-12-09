@@ -42,5 +42,5 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination pg-purple justify-content-center">
         {{ $boards->links() }}
-    </ul>
-    </nav>
+  </ul>
+</nav>

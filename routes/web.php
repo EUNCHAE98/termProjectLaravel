@@ -26,7 +26,7 @@ Route::get('/welcome',function(){
 Route::get('/','indexController@main');
 Route::get('/community','indexController@community')->name('community');
 Route::get('/adminPage','indexController@adminPage');
-Route::get('/about','indexController@about');
+Route::get('/about','indexController@about')->name('about');
 
 
 /*
@@ -52,11 +52,27 @@ Route::get('/writeUpload','BoardController@writeUpload');
 Route::get('/modify_form/{num}','BoardController@modify_form');
 Route::post('/modify','BoardController@modify');
 
-Route::post('/destroy', ['as' => 'destroy', 'use' => 'BoardController@destroy']);
+// Route::delete('/destroy/{num}', ['as' => 'destroy', 'use' => 'BoardController@destroy']);
+Route::delete('/destroy/{board}', 'BoardController@destroy')->name('board.destroy');
 
-Route::get('/view/{num?}','BoardController@view');
+Route::get('/view/{num?}','BoardController@view','BoardController@marketPop');
 Route::post('/comment/{num?}','BoardController@comment');
 
+Route::delete('/commentDestroy/{c_id}', 'BoardController@commentDestroy');
+
+
+//Route::resource('board','BoardController');
+
+/*
+	Route of market
+
+	1. buy
+	2. popUpMessage(with ajax)
+	3. buyConfirm
+*/
+Route::post('/buy/{num}','BoardController@buy');
+Route::get('/getRequest', 'AjaxController@returnMessage');
+Route::post('/buyConfirm/{order_id}', 'BoardController@buyConfirm');
 
 /*
 	Route of adminPage
@@ -68,15 +84,6 @@ Route::post('/userDelete','indexController@userDelete');
 Route::get('/goToUserBoard/{name}','indexController@goToUserBoard');
 
 Route::resource('tasks', 'TasksController');
-
-
-/*
-	Route of market
-
-	1. order
-	2. 
-*/
-Route::get('/buy', 'indexController@buy');
 
 
 /*
@@ -95,3 +102,10 @@ Auth::routes();
 Route::get('kakao','kakaoLoginController@index');
 Route::get('login/kakao','kakaoLoginController@redirectToProvider');
 Route::get('login/kakao/callback','kakaoLoginController@handleProviderCallback');
+
+/*
+	Route of user
+
+	1. update
+*/
+Route::post('/update/{id}', 'indexController@update');

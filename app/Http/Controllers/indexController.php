@@ -7,6 +7,7 @@ use App\board;
 use App\User;
 use App\Comment;
 use App\Task;
+use App\Buy;
 use App\market_slime;
 
 class indexController extends Controller
@@ -17,7 +18,23 @@ class indexController extends Controller
 
     // community
     public function community(){
-        return view('community');
+
+        if(!\Auth::check()){
+            return view('community')->with('buys');
+        }
+        
+        $user = \Auth::user()['name'];
+        $board = Board::where('writer', $user)->where('category', 'market')->get();
+
+        if($board!='[]'){
+            for($i=0; $i<count($board); $i++){
+                $buys[$i] = Board::find($board[$i]->num)->buys->where('status', 0);
+            }
+            return view('community')->with('buys',$buys);
+        }else{
+            return view('community')->with('buys',0);
+        }
+
     }
 
     // about 
@@ -31,7 +48,17 @@ class indexController extends Controller
         $tasks = Task::all();
         $users = user::all();
 
-        return view('adminPage')->with('users',$users)->with('tasks',$tasks);;
+        $user = \Auth::user()['name'];
+        $board = Board::where('writer', $user)->where('category', 'market')->get();
+
+        if($board!='[]'){
+            for($i=0; $i<count($board); $i++){
+                $buys[$i] = Board::find($board[$i]->num)->buys->where('status', 0);
+            }
+            return view('adminPage')->with('buys',$buys)->with('users',$users)->with('tasks',$tasks);
+        }else{
+            return view('adminPage')->with('buys',0)->with('users',$users)->with('tasks',$tasks);
+        }
     }
 
     // adminPage 중 userDelete
@@ -46,10 +73,20 @@ class indexController extends Controller
 
     // adminPage 중 해당 user 작성글 보기
     public function goToUserBoard($name){
-        $user = user::where('name',$name)->value('name');
-        $userBoards = board::where('writer',$user)->paginate(6);
+        $users = user::where('name',$name)->value('name');
+        $userBoards = board::where('writer',$users)->paginate(6);
 
-        return view('/goToUserBoard')->with('userBoards',$userBoards);
+        $user = \Auth::user()['name'];
+        $board = Board::where('writer', $user)->where('category', 'market')->get();
+
+        if($board!='[]'){
+            for($i=0; $i<count($board); $i++){
+                $buys[$i] = Board::find($board[$i]->num)->buys->where('status', 0);
+            }
+            return view('/goToUserBoard')->with('userBoards',$userBoards)->with('buys',$buys);
+        }else{
+            return view('/goToUserBoard')->with('userBoards',$userBoards)->with('buys',0);
+        }
     }
 
     // 회원 정보 update_form
@@ -60,11 +97,11 @@ class indexController extends Controller
     }
 
     // 회원 정보 update
-    public function update(Request $request){
+    public function update(Request $request, $id){
         $user = user::where('id',$id)->first();
 
-        $user->name = $request->name;
-        $user->password = $request->password;
+        $user->name = $request->Uname;
+        $user->password = $request->Upassword;
 
         $user->save();
 

@@ -13,152 +13,184 @@
             <!-- login/register or logout/update 부분 -->
             <div class="d-flex justify-content-end">
                     @if(!\Auth::check())
-                    <!-- login 부분 -->
-                    <button data-toggle="modal" data-target="#orangeModalSubscription" class="btn btn-link bt-sm">LOGIN</button>
+                        <!-- login 부분 -->
+                        <button data-toggle="modal" data-target="#orangeModalSubscription" class="btn btn-link bt-sm">LOGIN</button>
 
-                    <!-- modal 시작 -->
-                    <div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-notify" role="document">
-                    <!--Content-->
-                    <div class="modal-content">
-                        <!--Header-->
-                        <div class="modal-header text-center" style="background-color: #02332d;">
-                            <h4 class="modal-title white-text w-100 py-2" style="font-family: 'Julius Sans One';">LOGIN</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true" class="white-text">&times;</span>
-                            </button>
-                        </div>
-
-                        <form action="{{route('login')}}" method="post">
-                            @csrf
-                        <!--Body-->
-                        <div class="modal-body">
-                            <div class="md-form mb-5">
-                                <i class="fa fa-user prefix grey-text"></i>
-                                <input type="text" id="form3" class="form-control validate" name="email" placeholder="email">
+                        <!-- modal 시작 -->
+                        <div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-notify" role="document">
+                        <!--Content-->
+                        <div class="modal-content">
+                            <!--Header-->
+                            <div class="modal-header text-center" style="background-color: #02332d;">
+                                <h4 class="modal-title white-text w-100 py-2" style="font-family: 'Julius Sans One';">LOGIN</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" class="white-text">&times;</span>
+                                </button>
                             </div>
 
-                            <div class="md-form">
-                                <i class="fa fa-lock prefix grey-text"></i>
-                                <input type="password" id="form2" class="form-control validate" name="password" placeholder="PASSWORD">
-                            </div>
-                        </div>
+                            <form action="{{route('login')}}" method="post">
+                                @csrf
+                            <!--Body-->
+                            <div class="modal-body">
+                                <div class="md-form mb-5">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    <input type="text" id="form3" class="form-control validate" name="email" placeholder="email">
+                                </div>
 
-                        <!--Footer-->
-                        <div class="modal-footer justify-content-center">
-                            <button type="submit" class="btn btn-outline-warning waves-effect">Login</button>
-                        </div>
-                        
-                        <!-- kakaotalk login button -->
-                        <div class="modal-footer justify-content-center">
-                            @include('components.kakaoLogin')
-                        </div>
-
-                    </form>
-                    </div>
-                    <!--/.Content-->
-                    </div>
-                    </div>
-
-                    <!-- modal 끝 -->
-                    <!-- login 부분 끝 -->
-
-                          <!-- update 부분 -->
-                    <button data-toggle="modal" data-target="#orangeModalSubscription-2" class="btn btn-link bt-sm">REGISTER</button>
-                    <div class="modal fade" id="orangeModalSubscription-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-notify" role="document">
-                    <!--Content-->
-                    <div class="modal-content">
-                        <!--Header-->
-                        <div class="modal-header text-center" style="background-color: #02332d;">
-                            <h4 class="modal-title white-text w-100 py-2" style="font-family: 'Julius Sans One';">REGISTER</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true" class="white-text">&times;</span>
-                            </button>
-                        </div>
-
-                        <form action="{{route('register')}}" method="post">
-                            @csrf
-                        <!--Body-->
-                        <div class="modal-body">
-                            <div class="md-form mb-5">
-                                <i class="fa fa-tag prefix grey-text"></i>
-                                <input type="text" id="form3" class="form-control validate" name="name" placeholder="name">
+                                <div class="md-form">
+                                    <i class="fa fa-lock prefix grey-text"></i>
+                                    <input type="password" id="form2" class="form-control validate" name="password" placeholder="PASSWORD">
+                                </div>
                             </div>
 
-                            <div class="md-form">
-                                <i class="fa fa-user prefix grey-text"></i>
-                                <input type="text" id="form2" class="form-control validate" name="email" placeholder="email">
+                            <!--Footer-->
+                            <div class="modal-footer justify-content-center">
+                                <button type="submit" class="btn btn-outline-warning waves-effect">Login</button>
                             </div>
-                            <div class="md-form">
-                                <i class="fa fa-lock prefix grey-text"></i>
-                                <input type="password" id="form2" class="form-control validate" name="password" placeholder="password">
+                            
+                            <!-- kakaotalk login button -->
+                            <div class="modal-footer justify-content-center">
+                                @include('components.kakaoLogin')
                             </div>
+
+                        </form>
+                        </div>
+                        <!--/.Content-->
+                        </div>
                         </div>
 
-                        <!--Footer-->
-                        <div class="modal-footer justify-content-center">
-                            <button type="submit" class="btn btn-outline-warning waves-effect">Register</button>
+                        <!-- modal 끝 -->
+                        <!-- login 부분 끝 -->
+
+                              <!-- update 부분 -->
+                        <button data-toggle="modal" data-target="#orangeModalSubscription-2" class="btn btn-link bt-sm">REGISTER</button>
+                        <div class="modal fade" id="orangeModalSubscription-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-notify" role="document">
+                        <!--Content-->
+                        <div class="modal-content">
+                            <!--Header-->
+                            <div class="modal-header text-center" style="background-color: #02332d;">
+                                <h4 class="modal-title white-text w-100 py-2" style="font-family: 'Julius Sans One';">REGISTER</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" class="white-text">&times;</span>
+                                </button>
+                            </div>
+
+                            <form action="{{route('register')}}" method="post">
+                                @csrf
+                            <!--Body-->
+                            <div class="modal-body">
+                                <div class="md-form mb-5">
+                                    <i class="fa fa-tag prefix grey-text"></i>
+                                    <input type="text" id="form3" class="form-control validate" name="name" placeholder="name">
+                                </div>
+
+                                <div class="md-form">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    <input type="text" id="form2" class="form-control validate" name="email" placeholder="email">
+                                </div>
+                                <div class="md-form">
+                                    <i class="fa fa-lock prefix grey-text"></i>
+                                    <input type="password" id="form2" class="form-control validate" name="password" placeholder="password">
+                                </div>
+                            </div>
+
+                            <!--Footer-->
+                            <div class="modal-footer justify-content-center">
+                                <button type="submit" class="btn btn-outline-warning waves-effect">Register</button>
+                            </div>
+                        </form>
                         </div>
-                    </form>
-                    </div>
-                    <!--/.Content-->
-                    </div>
-                    </div>
+                        <!--/.Content-->
+                        </div>
+                        </div>
+
 
                     @else
-                    <form action="{{route('logout')}}" id="logout" method="post" style="display: none;">
-                        @csrf
-                    </form>
-                        <button type="button" class="btn btn-link bt-sm" onclick="document.getElementById('logout').submit()">LOGOUT</button>
+                        <form action="{{route('logout')}}" id="logout" method="post" style="display: none;">
+                            @csrf
+                        </form>
+                            <button type="button" class="btn btn-link bt-sm" onclick="document.getElementById('logout').submit()">LOGOUT</button>
 
-                        <!-- update 부분 -->
-                    <button data-toggle="modal" data-target="#orangeModalSubscription-2" class="btn btn-link bt-sm">UPDATE</button>
-                    <div class="modal fade" id="orangeModalSubscription-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-notify" role="document">
-                    <!--Content-->
-                    <div class="modal-content">
-                        <!--Header-->
-                        <div class="modal-header text-center" style="background-color: #02332d;">
-                            <h4 class="modal-title white-text w-100 py-2" style="font-family: 'Julius Sans One';">UPDATE</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true" class="white-text">&times;</span>
-                            </button>
-                        </div>
-
-                        <form action="#" method="post">
-                        <!--Body-->
-                        <div class="modal-body">
-                            <div class="md-form mb-5">
-                                <i class="fa fa-tag prefix grey-text"></i>
-                                <input type="text" id="form3" class="form-control validate" name="Uname" value="{{\Auth::user()['name']}}">
+                            <!-- update 부분 -->
+                        <button data-toggle="modal" data-target="#orangeModalSubscription-2" class="btn btn-link bt-sm">UPDATE</button>
+                        <div class="modal fade" id="orangeModalSubscription-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-notify" role="document">
+                        <!--Content-->
+                        <div class="modal-content">
+                            <!--Header-->
+                            <div class="modal-header text-center" style="background-color: #02332d;">
+                                <h4 class="modal-title white-text w-100 py-2" style="font-family: 'Julius Sans One';">UPDATE</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" class="white-text">&times;</span>
+                                </button>
                             </div>
 
-                            <div class="md-form">
-                                <i class="fa fa-user prefix grey-text"></i>
-                                <input type="text" id="form2" class="form-control validate" name="Rid" value="{{\Auth::user()['email']}}" readonly>
-                            </div>
-                            <div class="md-form">
-                                <i class="fa fa-lock prefix grey-text"></i>
-                                <input type="password" id="form2" class="form-control validate" name="Rpw" value="{{(\Auth::user()['password'])}}">
-                            </div>
-                        </div>
+                            <form action="{{url('update')}}/{{\Auth::user()['id']}}" method="post">
+                                @csrf
+                            <!--Body-->
+                            <div class="modal-body">
+                                <div class="md-form mb-5">
+                                    <i class="fa fa-tag prefix grey-text"></i>
+                                    <input type="text" id="form3" class="form-control validate" name="Uname" value="{{\Auth::user()['name']}}">
+                                </div>
 
-                        <!--Footer-->
-                        <div class="modal-footer justify-content-center">
-                            <button type="submit" class="btn btn-outline-warning waves-effect">Update</button>
+                                <div class="md-form">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    <input type="text" id="form2" class="form-control validate" name="Uid" value="{{\Auth::user()['email']}}" readonly>
+                                </div>
+                                <div class="md-form">
+                                    <i class="fa fa-lock prefix grey-text"></i>
+                                    <input type="password" id="form2" class="form-control validate" name="Upassword" value="{{(\Auth::user()['password'])}}">
+                                </div>
+                            </div>
+
+                            <!--Footer-->
+                            <div class="modal-footer justify-content-center">
+                                <button type="submit" class="btn btn-outline-warning waves-effect">Update</button>
+                            </div>
+                        </form>
                         </div>
-                    </form>
-                    </div>
-                    <!--/.Content-->
-                    </div>
-                    </div> 
-                    @if(\Auth::user()['name'] == 'admin')
-                            <button type="button" onclick="location.href='{{url('adminPage')}}'" class="btn btn-link bt-sm">관리자 페이지로 > </button>
+                        <!--/.Content-->
+                        </div>
+                        </div> 
+                        <!-- modal 끝 -->
+                            <!-- update 부분 끝 -->
+
+                        <!-- user name = admin 인 경우, 관리자 페이지 버튼 추가 -->
+                        @if(\Auth::user()['name'] == 'admin')
+                                <button type="button" onclick="location.href='{{url('adminPage')}}'" class="btn btn-link"> admin > </button>
                         @endif
+
+                        <!-- market 알림 부분 -->
+                        <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#modalAbandonedCart"><i class="fa fa-shopping-cart fa-2x" style="color: #aa3e3e;"></i></button>
+
+                        <div class="modal fade right" id="modalAbandonedCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+                          <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document">
+                            <!--Content-->
+                            <div class="modal-content">
+                              <!--Header-->
+                              <div class="modal-header">
+                                <p class="heading">Market Message
+                                </p>
+
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true" class="white-text">&times;</span>
+                                </button>
+                              </div>
+
+                                <div id="RequestView">
+                              
+                                    @include('components.marketAlarmModalBody');
+                                </div>
+                               
+                            </div>
+                            <!--/.Content-->
+                          </div>
+                        </div>
+
                     @endif
-                    <!-- modal 끝 -->
-                        <!-- update 부분 끝 -->
 
 
             </div>
